@@ -39,7 +39,8 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']], 
-            ['label' => 'Mahasiswa', 'url' => ['/mahasiswa']], 
+            ['label' => 'Mahasiswa', 'url' => ['/mahasiswa']],
+            ['label' => 'Prodi', 'url' => ['/prodi']], 
              ['label' => 'Barang', 'url' => ['/barang']], 
              ['label' => 'Jenis', 'url' => ['/jenis']],
              ['label' => 'Supplier', 'url' => ['/supplier']],
