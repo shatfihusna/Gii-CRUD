@@ -12,6 +12,7 @@ use Yii;
  * @property string $nama
  * @property string $tanggal_lahir
  * @property string $jekel
+ * @property int $id_jurusan
  * @property int $id_prodi
  * @property string $email
  * @property string $alamat
@@ -34,8 +35,8 @@ class Mahasiswa extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nim', 'nama', 'tanggal_lahir', 'jekel', 'id_prodi', 'email', 'alamat'], 'required'],
-            [['id_prodi'], 'integer'],
+            [['nim', 'nama', 'tanggal_lahir', 'jekel', 'id_jurusan', 'id_prodi', 'email', 'alamat'], 'required'],
+            [['id_jurusan', 'id_prodi'], 'integer'],
             [['nim'], 'string', 'max' => 18],
             [['nama', 'tanggal_lahir', 'email'], 'string', 'max' => 50],
             [['jekel'], 'string', 'max' => 1],
@@ -54,7 +55,8 @@ class Mahasiswa extends \yii\db\ActiveRecord
             'nim' => 'Nim',
             'nama' => 'Nama',
             'tanggal_lahir' => 'Tanggal Lahir',
-            'jekel' => 'Jenis Kelamin',
+            'jekel' => 'Jekel',
+            'id_jurusan' => 'Id Jurusan',
             'id_prodi' => 'Id Prodi',
             'email' => 'Email',
             'alamat' => 'Alamat',
@@ -69,5 +71,9 @@ class Mahasiswa extends \yii\db\ActiveRecord
     public function getProdi()
     {
         return $this->hasOne(Prodi::className(), ['id' => 'id_prodi']);
+    }
+    public function getJurusan()
+    {
+        return $this->hasOne(Jurusan::className(), ['id_jurusan' => 'id_jurusan']);
     }
 }

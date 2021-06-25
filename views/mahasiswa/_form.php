@@ -4,6 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
 use yii\helpers\ArrayHelper;
+use kartik\depdrop\DepDrop;
+use yii\helpers\Url;
+use app\models\Prodi;
+use app\models\Jurusan;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Mahasiswa */
@@ -37,15 +41,26 @@ use yii\helpers\ArrayHelper;
 
     <?php //= $form->field($model, 'id_prodi')->textInput() ?>
 
-    <?php
-        $dataPost=ArrayHelper::map(\app\models\Prodi::find()->asArray()
-            ->all(), 'id', 'prodi');
-         echo $form->field($model, 'id_prodi')
-        ->dropDownList(
-            $dataPost,           
-            ['id'=>'prodi']
-        );
+
+
+
+    <?= $form->field($model, 'id_jurusan')->dropDownList(Jurusan::getJurusan(),
+        ['id' => 'jurusan','prompt' => 'select Jurusan...'])
+       ?>
+        
+    <?=
+        $form->field($model, 'id_prodi')->widget(DepDrop::classname(),[
+            'data' => Prodi::getProdiList($model->id_jurusan),
+            'options' => ['id' => 'prodi','prompt' => 'select Jurusan...'],
+            'pluginOptions' => [
+                'depends' => ['jurusan'],
+                'placeholder' => 'select prodi...',
+                'url' => Url::to(['mahasiswa/subcat'])
+            ]
+        ])
     ?>
+    
+    
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
