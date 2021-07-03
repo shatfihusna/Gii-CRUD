@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Jun 2021 pada 18.36
+-- Waktu pembuatan: 03 Jul 2021 pada 16.51
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -155,14 +155,15 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id`, `nim`, `nama`, `tanggal_lahir`, `jekel`, `id_jurusan`, `id_prodi`, `email`, `alamat`) VALUES
-(1, '1911081011', 'Shatfi Husna', '30-May-2000', 'P', 1, 3, 'satfihusna@gmail.com', 'Candung, Kabupaten Agam'),
+(1, '1911081011', 'Shatfi Husna', '30-May-2000', 'P', 1, 1, 'satfihusna@gmail.com', 'Candung, Kabupaten Agam'),
 (2, '1911082021', 'Srintika Yuni Kharisma', '12-Jan-2011', 'P', 2, 2, 'srintikayunikharisma@gmail.com', 'Bukittinggi'),
 (3, '1911081013', 'Nikita Chairunnisa', '01-Jan-2001', 'P', 5, 16, 'nikitachairunnisa@gmail.com', 'Sijunjung'),
 (5, '1901081001', 'Virdapiliacani', '25-Mar-2001', 'P', 2, 3, 'virda@gmail.com', 'Padang'),
 (7, '1911082021', 'Budi', '08-Jun-2021', 'L', 4, 12, 'budi@gmail.com', 'Bukittinggi'),
 (13, '1911081030', 'Irsyad Nabawai', '12-Jul-2000', 'L', 3, 3, 'irsyad@gamil.com', 'Sijunjung'),
+(14, '1901081011', 'Anonymous', '06-Jun-2000', 'P', 6, 15, 'Anonymous@gmail.com', 'dsf'),
 (16, '1911082022', 'Yonanda Wahyu Putri', '06-Jun-2000', 'P', 6, 14, 'yonandawahyuputri@gmail.com', 'Solok Selatan'),
-(1128, '767', 'bb', '06-Jun-2021', 'P', 6, 15, 'bjb', 'mml');
+(18, '1911082021', 'Arrahma Deani', '07-Mar-2001', 'P', 3, 3, 'arrahmadeani@gmail.com', 'Panca, Batu Taba Kecamatan Ampek Angkek');
 
 -- --------------------------------------------------------
 
@@ -199,7 +200,9 @@ INSERT INTO `prodi` (`id`, `id_jurusan`, `prodi`, `keterangan`) VALUES
 (15, 6, 'UPW', 'D3-Usaha Perjalanan Wisata'),
 (16, 5, 'D3-Akuntansi', 'D3-Akuntansi'),
 (17, 4, 'TRIL', 'D4-Teknik Rekayasa Instalasi Listrik'),
-(18, 7, 'Bahasa Inggris', 'D3-Bahasa Inggris');
+(18, 7, 'Bahasa Inggris', 'D3-Bahasa Inggris'),
+(19, 3, 'Mesin', 'D3-Teknik Mesin'),
+(20, 3, 'Alat Berat', 'D3-Teknik Alat Berat');
 
 -- --------------------------------------------------------
 
@@ -329,13 +332,13 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1130;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1132;
 
 --
 -- AUTO_INCREMENT untuk tabel `prodi`
 --
 ALTER TABLE `prodi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `sipil`

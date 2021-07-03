@@ -5,7 +5,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/" class="img-circle" alt=""/>
+                <img src="<?= $directoryAsset ?>/img/avatar2.png" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
                 <p>Shatfi Husna</p>
@@ -31,9 +31,17 @@
                 'items' => [
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Mahasiswa',  'url' => ['/mahasiswa']],
-                    ['label' => 'Jurusan', 'url' => ['/jurusan']],
-                     ['label' => 'Prodi', 'url' => ['/prodi']],
+                    [
+                        'label' => 'TUGAS WEB','icon' => 'file-code-o', 'url' => '#',
+                        'items' => [
+                            ['label' => 'Mahasiswa', 'icon' => 'circle-o', 'url' => ['/mahasiswa']],
+                            ['label' => 'Jurusan','icon' => 'circle-o', 'url' => ['/jurusan']],
+                             ['label' => 'Prodi', 'icon' => 'circle-o','url' => ['/prodi']],
+                        ],
+
+                    ],
+
+                  
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [

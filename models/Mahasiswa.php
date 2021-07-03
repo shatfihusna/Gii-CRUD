@@ -55,7 +55,7 @@ class Mahasiswa extends \yii\db\ActiveRecord
             'nim' => 'Nim',
             'nama' => 'Nama',
             'tanggal_lahir' => 'Tanggal Lahir',
-            'jekel' => 'Jekel',
+            'jekel' => 'Jenis Kelamin',
             'id_jurusan' => 'Id Jurusan',
             'id_prodi' => 'Id Prodi',
             'email' => 'Email',

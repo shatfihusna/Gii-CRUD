@@ -236,8 +236,8 @@ use yii\helpers\Html;
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="<?= $directoryAsset ?>/img/" class="img-circle"
-                                 alt=""/>
+                            <img src="<?= $directoryAsset ?>/img/avatar2.png" class="img-circle"
+                                 alt="User Image"/>
 
                             <p>
                                 Shatfi Husna - Web Developer
