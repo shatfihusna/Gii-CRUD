@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "mahasiswa".
@@ -21,6 +22,7 @@ use Yii;
  */
 class Mahasiswa extends \yii\db\ActiveRecord
 {
+    public $gambar;
     /**
      * {@inheritdoc}
      */
@@ -42,6 +44,8 @@ class Mahasiswa extends \yii\db\ActiveRecord
             [['jekel'], 'string', 'max' => 1],
             [['alamat'], 'string', 'max' => 100],
             [['id_prodi'], 'exist', 'skipOnError' => true, 'targetClass' => Prodi::className(), 'targetAttribute' => ['id_prodi' => 'id']],
+            ['foto', 'string', 'max' => 100],
+            ['gambar','file','extensions' => 'jpg, jpeg, png'],
         ];
     }
 
@@ -60,6 +64,7 @@ class Mahasiswa extends \yii\db\ActiveRecord
             'id_prodi' => 'Id Prodi',
             'email' => 'Email',
             'alamat' => 'Alamat',
+            'foto' => 'Foto',
         ];
     }
 
@@ -76,4 +81,6 @@ class Mahasiswa extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Jurusan::className(), ['id_jurusan' => 'id_jurusan']);
     }
+
+
 }

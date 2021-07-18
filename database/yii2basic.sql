@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Jul 2021 pada 16.51
+-- Waktu pembuatan: 18 Jul 2021 pada 12.06
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -147,23 +147,23 @@ CREATE TABLE `mahasiswa` (
   `id_jurusan` int(11) NOT NULL,
   `id_prodi` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `alamat` varchar(100) NOT NULL
+  `alamat` varchar(100) NOT NULL,
+  `foto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`id`, `nim`, `nama`, `tanggal_lahir`, `jekel`, `id_jurusan`, `id_prodi`, `email`, `alamat`) VALUES
-(1, '1911081011', 'Shatfi Husna', '30-May-2000', 'P', 1, 1, 'satfihusna@gmail.com', 'Candung, Kabupaten Agam'),
-(2, '1911082021', 'Srintika Yuni Kharisma', '12-Jan-2011', 'P', 2, 2, 'srintikayunikharisma@gmail.com', 'Bukittinggi'),
-(3, '1911081013', 'Nikita Chairunnisa', '01-Jan-2001', 'P', 5, 16, 'nikitachairunnisa@gmail.com', 'Sijunjung'),
-(5, '1901081001', 'Virdapiliacani', '25-Mar-2001', 'P', 2, 3, 'virda@gmail.com', 'Padang'),
-(7, '1911082021', 'Budi', '08-Jun-2021', 'L', 4, 12, 'budi@gmail.com', 'Bukittinggi'),
-(13, '1911081030', 'Irsyad Nabawai', '12-Jul-2000', 'L', 3, 3, 'irsyad@gamil.com', 'Sijunjung'),
-(14, '1901081011', 'Anonymous', '06-Jun-2000', 'P', 6, 15, 'Anonymous@gmail.com', 'dsf'),
-(16, '1911082022', 'Yonanda Wahyu Putri', '06-Jun-2000', 'P', 6, 14, 'yonandawahyuputri@gmail.com', 'Solok Selatan'),
-(18, '1911082021', 'Arrahma Deani', '07-Mar-2001', 'P', 3, 3, 'arrahmadeani@gmail.com', 'Panca, Batu Taba Kecamatan Ampek Angkek');
+INSERT INTO `mahasiswa` (`id`, `nim`, `nama`, `tanggal_lahir`, `jekel`, `id_jurusan`, `id_prodi`, `email`, `alamat`, `foto`) VALUES
+(1, '1911081011', 'Shatfi Husna', '30-May-2000', 'P', 1, 1, 'satfihusna@gmail.com', 'Candung, Kabupaten Agam', 'diam.jpg'),
+(2, '1911082021', 'Srintika Yuni Kharisma', '12-Jan-2011', 'P', 2, 2, 'srintikayunikharisma@gmail.com', 'Bukittinggi', 'Datuak.png'),
+(3, '1911081013', 'Nikita Chairunnisa', '01-Jan-2001', 'P', 5, 16, 'nikitachairunnisa@gmail.com', 'Sijunjung', 'Screenshot (185).png'),
+(5, '1901081001', 'Virdapiliacani', '25-Mar-2001', 'P', 2, 2, 'virda@gmail.com', 'Padang', '1521604352758.jpg'),
+(7, '1911082021', 'Budi', '08-Jun-2021', 'L', 4, 12, 'budi@gmail.com', 'Bukittinggi', 'baruu.jpg'),
+(13, '1911081030', 'Irsyad Nabawai', '12-Jul-2000', 'L', 3, 3, 'irsyad@gamil.com', 'Sijunjung', 'Capture55.JPG'),
+(16, '1911082022', 'Yonanda Wahyu Putri', '06-Jun-2000', 'P', 6, 14, 'yonandawahyuputri@gmail.com', 'Solok Selatan', 'Gadih.png'),
+(18, '1911082021', 'Arrahma Deani', '07-Mar-2001', 'P', 3, 3, 'arrahmadeani@gmail.com', 'Panca, Batu Taba Kecamatan Ampek Angkek', 'dirt-road-mosque-with-beautiful-landscape_43633-6442.jpg');
 
 -- --------------------------------------------------------
 
@@ -183,45 +183,26 @@ CREATE TABLE `prodi` (
 --
 
 INSERT INTO `prodi` (`id`, `id_jurusan`, `prodi`, `keterangan`) VALUES
-(1, 1, 'TRPL', 'D4-Teknologi Rekayasa Perangkat Lunak'),
-(2, 2, 'TS', 'D3-Teknik Sipil'),
-(3, 3, 'MRK', 'D4-Manajemen Rekayasa Konstruksi'),
-(4, 1, 'TK', 'D3-Teknik Komputer'),
-(5, 1, 'MI', 'D3-Manajemen Informatika'),
-(6, 2, 'PIR', 'D4-Perancangan Irigasi dan Rawa'),
+(1, 1, 'Teknologi Rekayasa Perangkat Lunak', 'D4-Teknologi Rekayasa Perangkat Lunak'),
+(2, 2, 'Teknik Sipil', 'D3-Teknik Sipil'),
+(3, 3, 'Manajemen Rekayasa Konstruksi', 'D4-Manajemen Rekayasa Konstruksi'),
+(4, 1, 'Teknik Komputer', 'D3-Teknik Komputer'),
+(5, 1, 'Manajemen Informatika', 'D3-Manajemen Informatika'),
+(6, 2, 'Perancangan Irigasi dan Rawa', 'D4-Perancangan Irigasi dan Rawa'),
 (7, 3, 'Manufaktur', 'D4-Teknik Manufaktur'),
-(8, 2, 'PJJ', 'D4-Teknik Perancangan Jalan dan Jembatan'),
-(9, 4, 'TL', 'D3-Teknik Listrik'),
-(10, 4, 'D3 TC', 'D3-Teknik Telekomunikasi'),
+(8, 2, 'Teknik Perancangan Jalan dan Jembatan', 'D4-Teknik Perancangan Jalan dan Jembatan'),
+(9, 4, 'Teknik Listrik', 'D3-Teknik Listrik'),
+(10, 4, 'D3 Telekomunikasi', 'D3-Teknik Telekomunikasi'),
 (11, 4, 'D3-Elektronika', 'D3-Teknik Elektronika'),
 (12, 4, 'D4-Elektronika', 'D4-Teknik Elektronika'),
 (13, 5, 'D4-Akuntansi', 'D4-Akuntansi'),
-(14, 6, 'AB', 'D3-Administrasi Bisnis'),
-(15, 6, 'UPW', 'D3-Usaha Perjalanan Wisata'),
+(14, 6, 'Administrasi Bisnis', 'D3-Administrasi Bisnis'),
+(15, 6, 'Usaha Perjalanan Wisata', 'D3-Usaha Perjalanan Wisata'),
 (16, 5, 'D3-Akuntansi', 'D3-Akuntansi'),
-(17, 4, 'TRIL', 'D4-Teknik Rekayasa Instalasi Listrik'),
+(17, 4, 'Teknik Rekayasa Instalasi Listrik', 'D4-Teknik Rekayasa Instalasi Listrik'),
 (18, 7, 'Bahasa Inggris', 'D3-Bahasa Inggris'),
-(19, 3, 'Mesin', 'D3-Teknik Mesin'),
+(19, 3, 'Teknik Mesin', 'D3-Teknik Mesin'),
 (20, 3, 'Alat Berat', 'D3-Teknik Alat Berat');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `sipil`
---
-
-CREATE TABLE `sipil` (
-  `id` int(11) NOT NULL,
-  `sipil` varchar(50) NOT NULL,
-  `Keterangan` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `sipil`
---
-
-INSERT INTO `sipil` (`id`, `sipil`, `Keterangan`) VALUES
-(1, 'MRK', 'D4 Manajemen Rekayasa Konstruksi');
 
 -- --------------------------------------------------------
 
@@ -295,12 +276,6 @@ ALTER TABLE `prodi`
   ADD KEY `jurusan` (`id_jurusan`);
 
 --
--- Indeks untuk tabel `sipil`
---
-ALTER TABLE `sipil`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeks untuk tabel `supplier`
 --
 ALTER TABLE `supplier`
@@ -332,19 +307,13 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1132;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1140;
 
 --
 -- AUTO_INCREMENT untuk tabel `prodi`
 --
 ALTER TABLE `prodi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT untuk tabel `sipil`
---
-ALTER TABLE `sipil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `supplier`

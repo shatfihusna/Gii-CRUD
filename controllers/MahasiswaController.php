@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\Prodi;
+use yii\web\UploadedFile;
 
 /**
  * MahasiswaController implements the CRUD actions for Mahasiswa model.
@@ -84,8 +85,14 @@ class MahasiswaController extends Controller
     public function actionCreate()
     {
         $model = new Mahasiswa();
+         Yii::$app->params['uploadPath'] = Yii::$app->basePath .'/web/img/';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $img = UploadedFile::getInstance($model,'gambar');
+            $model->foto = $img->name;
+            $model->gambar = $img;
+            $model->save();
+            $model->gambar->saveAs(Yii::$app->params['uploadPath'].$model->gambar);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -104,8 +111,18 @@ class MahasiswaController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        Yii::$app->params['uploadPath'] = Yii::$app->basePath .'/web/img/';
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            $old = $model->foto;
+            if($old!=""){
+                unlink(Yii::$app->basePath .'/web/img/' . $old);
+            }
+            $img = UploadedFile::getInstance($model,'gambar');
+            $model->foto = $img->name;
+            $model->gambar = $img;
+            $model->save();
+            $model->gambar->saveAs(Yii::$app->params['uploadPath'].$model->gambar);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
